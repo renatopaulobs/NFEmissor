@@ -1,0 +1,19 @@
+<div class="register-page">
+<div class="form-container">
+  <div class="progress" *ngIf="loading">
+    <div class="spinner">
+      <mat-spinner></mat-spinner>
+    </div>
+  </div>
+  <div class="login-back">
+    <mat-toolbar >
+      <span>Ávila Emissor</span>
+    </mat-toolbar>
+    <form class="form-login" [formGroup]="authenticationForm" (ngSubmit)="submitAuthenticationForm(authentication)">
+      <formly-form [model]="authentication" [fields]="authenticationFields">
+        <button [disabled]="!authenticationForm.valid" type="submit" color="primary" mat-raised-button>Entrar</button>
+      </formly-form>
+    </form>
+  </div>
+</div>
+</div>

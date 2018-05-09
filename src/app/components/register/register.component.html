@@ -1,0 +1,44 @@
+<div class="register-page">
+  <mat-card class="settings-card">
+        <mat-slide-toggle color="primary" class="slide-toggle" >Envio Automático de NFe</mat-slide-toggle>
+        <mat-accordion>
+
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Cadastrar Novo Usuário
+              </mat-panel-title>
+              <mat-panel-description>
+                Insira as Informações
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+      
+            <form class="form-login" [formGroup]="registrationForm" (ngSubmit)="submitRegistrationForm(registration)">
+                <formly-form [model]="registration" [fields]="registrationFields">
+                  <button [disabled]="!registrationForm.valid" type="submit" color="primary" mat-raised-button class="button-register">Cadastrar</button>
+                </formly-form>
+            </form>
+
+          </mat-expansion-panel>
+          <mat-expansion-panel (opened)="panelOpenState = true"
+                              (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Modificar Senha
+              </mat-panel-title>
+              <mat-panel-description> 
+                Insira as Informações
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <form class="form-login" [formGroup]="changePassForm" (ngSubmit)="submitRegistrationForm(registration)">
+              <formly-form [model]="changePass" [fields]="changePassFields">
+                <button [disabled]="!registrationForm.valid" type="submit" color="primary" mat-raised-button class="button-register">Atualizar</button>
+              </formly-form>
+            </form>
+
+          </mat-expansion-panel>
+        </mat-accordion>
+        <button mat-button class="logout" ><img  src="./../../../assets/images/logout.svg"style="width:25px;height:25px;"> Sair</button>
+  </mat-card>
+</div>

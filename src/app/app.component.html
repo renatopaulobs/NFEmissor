@@ -1,0 +1,42 @@
+<div>
+  <div *ngIf="auth.isAuthenticated">
+    <nav mat-tab-nav-bar>
+      <a class="img-logo"><img routerLink="./../../../home" src="http://avilasolucoes.com.br/wp-content/uploads/2014/05/avila-nova-marca.jpg"style="width:97px;height:34px;"></a>
+      <a class ="tab-select" mat-tab-link *ngFor="let routeLink of routeLinks; let i = index;"
+      [routerLink]="routeLink.link"
+      routerLinkActive="mat-tab-link-active"
+      #rla="routerLinkActive"
+      [active]="activeLinkIndex === i"
+      (click)="activeLinkIndex = i"
+      [routerLinkActiveOptions]="{exact: true}">
+      <img *ngIf="routeLink.label=='NFe'" src="./../../../assets/images/open-box.svg" class="icon-padding" style="width:20px;height:20px;">    
+        {{routeLink.label}}
+      </a>
+      <button mat-icon-button routerLink="./../../../register" class="settings"><img src="./../../../assets/images/settings.svg"style="width:25px;height:25px;"></button>                                
+    </nav>
+  </div>
+  <router-outlet></router-outlet>
+  
+  <footer>
+    <div class="footer">
+      <a class="content"> 
+        <ng-container>
+            <img src="./../../../assets/images/mail.svg"style="width:15px;height:15px;">
+            contato@avilasolucoes.com.br       
+        </ng-container>
+      </a>
+    <a class="content"> 
+        <ng-container>
+            <img src="./../../../assets/images/placeholder.svg"style="width:15px;height:15px;">
+            Rua São Vicente - 150, Tamarineira - Recife/PE | Cep: 52051-160  
+        </ng-container> 
+    </a>
+    <a class="content"> 
+        <ng-container>
+            <img src="./../../../assets/images/phone-call.svg"style="width:15px;height:15px;">
+            (81) 3267.3199
+        </ng-container> 
+    </a>  
+    </div>
+</footer>
+</div>

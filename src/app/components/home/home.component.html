@@ -1,0 +1,67 @@
+<div class="register-page">
+    
+  <div>
+    <div class="button-front">
+      <button mat-button></button>    
+    </div>
+  </div>
+  <div class="example-container mat-elevation-z8">
+      <div class="example-header">
+          <mat-form-field>
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscar">
+          </mat-form-field>
+      </div>
+      <mat-table #table [dataSource]="dataSource" matSort>
+       
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+  
+         <!-- Checkbox Column -->
+        <ng-container matColumnDef="select">
+          <mat-header-cell *matHeaderCellDef>
+            <mat-checkbox color="primary" (change)="$event ? masterToggle() : null"
+                          [checked]="selection.hasValue() && isAllSelected()"
+                          [indeterminate]="selection.hasValue() && !isAllSelected()">
+            </mat-checkbox>
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row">
+            <mat-checkbox color="primary" (click)="$event.stopPropagation()"
+                          (change)="$event ? selection.toggle(row) : null"
+                          [checked]="selection.isSelected(row)">
+            </mat-checkbox>
+          </mat-cell>
+        </ng-container>
+              
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> No. </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+        </ng-container>
+    
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Descrição </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+        </ng-container>
+    
+        <!-- Weight Column -->
+        <ng-container matColumnDef="weight">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Ação </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
+        </ng-container>
+    
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="symbol">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+        </ng-container>
+    
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)"></mat-row>
+      </mat-table>
+      <a>
+      <button mat-icon-button class="print" ><img src="./../../../assets/images/printer.svg"style="width:25px;height:25px;"></button>                                
+      <button mat-icon-button class="delete" (click)="openDialog()" ><img src="./../../../assets/images/trash.svg"style="width:25px;height:25px;"></button>                                
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+      </a>
+    </div>

@@ -1,0 +1,50 @@
+.img-logo{
+    margin-left: 20px;
+}
+
+img {
+    outline: none;
+}
+    
+.img-logo:hover {
+    cursor: pointer;    
+}
+
+.icon-padding {
+    padding-right: 5px;
+}
+
+.settings{
+    position: fixed;
+    right: 0;
+    margin-right: 10px; 
+    width: 45px;
+    height: 40px;
+}
+
+.tab-select{
+    margin-left: 20px;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #272727;
+    color: white;
+}
+
+.content{
+    align-self: auto;
+    margin-left: 100px;
+}
+
+body {
+    background-color: rgb(221, 234, 238);
+}
+
+div{
+    font-family: Helvetica;
+}
+
