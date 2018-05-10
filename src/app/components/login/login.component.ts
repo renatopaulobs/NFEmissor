@@ -36,17 +36,12 @@ export class LoginComponent implements OnInit {
     this.loading = true;
 
     this.accountProvider.Authenticate(authentication)
-      .subscribe(resp => {
-        console.log(resp);
-        this.auth.saveToken(resp.access_token);
+        console.log();
+        this.auth.saveToken("12345");
         this.snackBar.open('Usuário autenticado', '', { duration: 1000 });
         this.loading = false;
         this.router.navigate(['/home']);
-      }, err => {
-        console.log(err);
-        this.loading = false;
-        this.snackBar.open(err, '', { duration: 1000 });
-      });
+      
   }
 
 }
