@@ -11,7 +11,6 @@
     </mat-toolbar>
     <form class="form-login" [formGroup]="authenticationForm" (ngSubmit)="submitAuthenticationForm(authentication)">
       <formly-form [model]="authentication" [fields]="authenticationFields">
-        <button [disabled]="!authenticationForm.valid" type="submit" color="primary" mat-raised-button>Entrar</button>
       </formly-form>
     </form>
   </div>
