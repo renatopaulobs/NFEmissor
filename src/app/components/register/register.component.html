@@ -12,6 +12,15 @@
                 Insira as Informações
               </mat-panel-description>
             </mat-expansion-panel-header>
+
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Novo Usuário
+                </mat-panel-title>
+                <mat-panel-description>
+                  Insira
+                </mat-panel-description>
+            </mat-expansion-panel-header>
       
             <form class="form-login" [formGroup]="registrationForm" (ngSubmit)="submitRegistrationForm(registration)">
                 <formly-form [model]="registration" [fields]="registrationFields">
